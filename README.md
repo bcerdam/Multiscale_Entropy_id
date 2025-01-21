@@ -52,11 +52,20 @@ If you want to run the algorithm through the terminal, do the following:
 python3 multiscale_entropy_id.py --algorithm mse_1d --input examples/mse_1d/ --scales 20 --m 2 --r 0.2 --fuzzy True --method RCMSE
 ```
 
+Output:
+
+![Sample Graph](examples/images/mse_1d.png)
+
+
 ## MSE 2D:
 
 ```console
 python3 multiscale_entropy_id.py --algorithm mse_2d --input examples/mse_2d/ --scales 20 --m 2 --r 0.2 --fuzzy True 
 ```
+
+Output:
+
+![Sample Graph](examples/images/mse_2d.png)
 
 ## MSE 3D:
 
@@ -64,6 +73,9 @@ python3 multiscale_entropy_id.py --algorithm mse_2d --input examples/mse_2d/ --s
 python3 multiscale_entropy_id.py --algorithm mse_3d --input examples/mse_3d/ --scales 20 --m 2 --r 0.2 --fuzzy True --method RCMSE
 ```
 
+Output:
+
+![Sample Graph](examples/images/mse_3d.png)
 
 # License
 
