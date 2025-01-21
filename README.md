@@ -40,4 +40,31 @@ clang -Xclang -fopenmp -I/usr/local/opt/libomp/include -L/opt/homebrew/Cellar/li
 clang -Xclang -fopenmp -I/usr/local/opt/libomp/include -L/opt/homebrew/Cellar/libomp/16.0.6/lib -lomp -Icore_c/mse_3d/headers core_c/mse_3d/scripts/mse_3d.c core_c/mse_3d/scripts/read_csv.c core_c/mse_3d/scripts/signal_std.c core_c/mse_3d/scripts/utils.c -o core_c/mse_3d/executables/mse_3d_p
 ```
 
-# Multiscale_Entropy_id
+# Examples.
+
+Inside the script "multiscale_entropy_id.py", there are three code examples. These are useful to understand how the dimensions of the input need to be handled and formatted. (Remember to activate the virtual enviroment in your IDE)
+
+If you want to run the algorithm through the terminal, do the following:
+
+## MSE 1D:
+
+```console
+python3 multiscale_entropy_id.py --algorithm mse_1d --input examples/mse_1d/ --scales 20 --m 2 --r 0.2 --fuzzy True --method RCMSE
+```
+
+## MSE 2D:
+
+```console
+python3 multiscale_entropy_id.py --algorithm mse_2d --input examples/mse_2d/ --scales 20 --m 2 --r 0.2 --fuzzy True 
+```
+
+## MSE 3D:
+
+```console
+python3 multiscale_entropy_id.py --algorithm mse_3d --input examples/mse_3d/ --scales 20 --m 2 --r 0.2 --fuzzy True --method RCMSE
+```
+
+
+# License
+
+No se cual, pero si alguien llega a ocupar esta herramienta, quiero que me llegue una citacion.

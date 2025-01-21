@@ -34,6 +34,7 @@ def mse_1d(input, scales, m, r, fuzzy, method, delta=0.7, distance_type=0, m_dis
     mse_values_1d = mse_1d_f.mse_1d(input, scales, m, r, fuzzy, method, delta, distance_type, m_distance, std_type, dim, n_threads, status)
     return mse_values_1d
 
+### Example: 1 ###
 
 # white_noise_1d = np.random.random((10000, 1))
 # mse_values_1d = mse_1d(input=white_noise_1d, scales=20, m=2, r=0.2, fuzzy=True, method='RCMSE', n_threads=8)
@@ -45,6 +46,8 @@ MSE_2d:
 def mse_2d(input, scales, m, r, delta=0.7, fuzzy=False, distance_type=0, n_threads=32, status=False, size=(100, 100)):
     mse_values_2d = mse_2d_f.mse_2d(input, scales, m, r, delta, fuzzy, distance_type, n_threads, status, size)
     return mse_values_2d
+
+### Example: 2 ###
 
 # white_noise_2d = np.random.randint(0, 255 + 1, size=(100, 100))
 # mse_values_2d = mse_2d(input=white_noise_2d, scales=20, m=1, r=0.5, n_threads=8)
@@ -58,6 +61,8 @@ def mse_3d(input, scales, m, r, fuzzy, method, delta=0.7, distance_type=0, m_dis
     mse_values_3d = mse_3d_f.mse_3d(input, scales, m, r, fuzzy, method, delta, distance_type, m_distance, sampleo, std_type, mod, m_espacial, dim_cubo, shape, n_threads, status, m_temp, plus_one)
     return mse_values_3d
 
+### Example: 3 ###
+
 # white_noise_3d = np.random.random((10, 10, 100))
 # mse_values_3d = mse_3d(input=white_noise_3d, scales=20, m=2, r=0.7, fuzzy=True, method='RCMSE', mod=True, m_espacial=1, n_threads=8)
 # utils_id.plot_arrays(mse_values_3d, title='Multiscale Entropy 3D: White Noise', xlabel='Scales', ylabel='Entropy')
@@ -66,41 +71,53 @@ def mse_3d(input, scales, m, r, fuzzy, method, delta=0.7, distance_type=0, m_dis
 Common parameters:
 {'scales':20, 'm':2, 'r':0.2, 'fuzzy':True, 'method':'RCMSE', 'n_threads':8, 'delta':0.9, 'mod':True, 'n_threads':64}
 '''
-#
-# def parse_arguments():
-#     parser = argparse.ArgumentParser(description='Calculate MSE values.')
-#
-#     parser.add_argument('input', help='Input data')
-#     parser.add_argument('--scales', type=int, help='Number of scales')
-#     parser.add_argument('--m', type=int, help='Window size for pattern comparison')
-#     parser.add_argument('--r', type=float, help='Tolerance parameter')
-#     parser.add_argument('--fuzzy', type=bool, help='Whether or not to use fuzzy function')
-#     parser.add_argument('--method', help='MSE algorithm method')
-#     parser.add_argument('--delta', type=float, default=0.7, help='Delta parameter')
-#     parser.add_argument('--distance_type', type=int, default=0, help='Distance type')
-#     parser.add_argument('--m_distance', type=int, default=2, help='M distance')
-#     parser.add_argument('--sampleo', type=int, default=1, help='Sampleo parameter')
-#     parser.add_argument('--std_type', default='UNIQUE_VALUES', help='Standard type')
-#     parser.add_argument('--mod', type=bool, default=False, help='Mod parameter')
-#     parser.add_argument('--m_espacial', type=int, default=1, help='M espacial parameter')
-#     parser.add_argument('--dim_cubo', type=int, default=1, help='Dimension cubo parameter')
-#     parser.add_argument('--shape', type=int, nargs='+', default=[10, 10, 100], help='Shape parameter')
-#     parser.add_argument('--n_threads', type=int, default=32, help='Number of threads')
-#     parser.add_argument('--status', type=bool, default=False, help='Status parameter')
-#     parser.add_argument('--m_temp', type=int, default=2, help='m_temp parameter')
-#     parser.add_argument('--plus_one', type=bool, default=True, help='plus_one parameter')
-#
-#     return parser.parse_args()
-#
-# def main():
-#     args = parse_arguments()
-#
-#     mse_values = mse_3d(args.input, args.scales, args.m, args.r, args.fuzzy, args.method, args.delta,
-#                                       args.distance_type, args.m_distance, args.sampleo, args.std_type, args.mod,
-#                                       args.m_espacial, args.dim_cubo, tuple(args.shape), args.n_threads, args.status)
-#
-#     for value in mse_values[0][1]:
-#         print(value)
-#
-# if __name__ == "__main__":
-#     main()
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='Calculate MSE values.')
+
+    parser.add_argument('--algorithm', choices=['mse_1d', 'mse_2d', 'mse_3d'], help='Type of MSE algorithm to use.')
+    parser.add_argument('--input', help='Input data')
+    parser.add_argument('--scales', type=int, help='Number of scales')
+    parser.add_argument('--m', type=int, help='Window size for pattern comparison')
+    parser.add_argument('--r', type=float, help='Tolerance parameter')
+    parser.add_argument('--fuzzy', type=bool, help='Whether or not to use fuzzy function')
+    parser.add_argument('--method', help='MSE algorithm method')
+    parser.add_argument('--delta', type=float, default=0.7, help='Delta parameter')
+    parser.add_argument('--distance_type', type=int, default=0, help='Distance type')
+    parser.add_argument('--m_distance', type=int, default=2, help='M distance')
+    parser.add_argument('--sampleo', type=int, default=1, help='Sampleo parameter')
+    parser.add_argument('--std_type', default='UNIQUE_VALUES', help='Standard type')
+    parser.add_argument('--mod', type=bool, default=False, help='Mod parameter')
+    parser.add_argument('--m_espacial', type=int, default=1, help='M espacial parameter')
+    parser.add_argument('--dim_cubo', type=int, default=1, help='Dimension cubo parameter')
+    parser.add_argument('--shape', type=int, nargs='+', default=[10, 10, 100], help='Shape parameter')
+    parser.add_argument('--n_threads', type=int, default=32, help='Number of threads')
+    parser.add_argument('--status', type=bool, default=False, help='Status parameter')
+    parser.add_argument('--m_temp', type=int, default=2, help='m_temp parameter')
+    parser.add_argument('--plus_one', type=bool, default=True, help='plus_one parameter')
+
+    return parser.parse_args()
+
+
+def main():
+    args = parse_arguments()
+
+    if args.algorithm == 'mse_1d':
+        mse_values = mse_1d(args.input, args.scales, args.m, args.r, args.fuzzy, args.method, args.delta,
+                            args.distance_type, args.m_distance, args.std_type, dim=1, n_threads=args.n_threads,
+                            status=args.status)
+    elif args.algorithm == 'mse_2d':
+        mse_values = mse_2d(args.input, args.scales, args.m, args.r, args.delta, args.fuzzy, args.distance_type,
+                            args.n_threads, args.status, size=(100, 100))
+    elif args.algorithm == 'mse_3d':
+        mse_values = mse_3d(args.input, args.scales, args.m, args.r, args.fuzzy, args.method, args.delta,
+                            args.distance_type, args.m_distance, args.sampleo, args.std_type, args.mod,
+                            args.m_espacial, args.dim_cubo, tuple(args.shape), args.n_threads, args.status, args.m_temp,
+                            args.plus_one)
+
+    for value in mse_values:
+        print(value)
+
+
+if __name__ == "__main__":
+    main()
