@@ -1,5 +1,5 @@
 # About
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bcerdam/Multiscale_Entropy_id/blob/main/multiscale_entropy_id.py)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bcerdam/Multiscale_Entropy_id/blob/main/Multiscale_Entropy_id.ipynb)
 
 
 C implementation of the three-dimensional Multiscale Entropy algorithm for {paper1} and {paper2}. Implementation for one and two-dimensional Multiscale Entropy also included.
