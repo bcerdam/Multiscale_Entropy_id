@@ -24,7 +24,7 @@ pip install -r requirements.txt
 
 ## Step 3: Compile C code.
 
-Should work out of the box for Ubuntu (gcc). It should also work for macOS, however, you need to set up ([Clang](https://clang.llvm.org/get_started.html)). Windows hasn't been tested, probably it doesn't work.
+Should work out of the box for Ubuntu (gcc). It should also work for macOS, however, you need to set up ([Clang](https://clang.llvm.org/get_started.html)). Windows hasn't been tested, it probably doesn't work.
 
 #### gcc
 ```console
