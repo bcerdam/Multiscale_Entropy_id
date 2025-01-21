@@ -49,7 +49,7 @@ If you want to run the algorithm through the terminal, do the following:
 ## MSE 1D:
 
 ```console
-python3 multiscale_entropy_id.py --algorithm mse_1d --input examples/mse_1d/ --scales 20 --m 2 --r 0.2 --fuzzy True --method RCMSE
+python3 multiscale_entropy_id.py --algorithm mse_1d --input examples/mse_1d/ --scales 20 --m 2 --r 0.2 --fuzzy True --method RCMSE --n_threads 8
 ```
 
 Output:
@@ -60,7 +60,7 @@ Output:
 ## MSE 2D:
 
 ```console
-python3 multiscale_entropy_id.py --algorithm mse_2d --input examples/mse_2d/ --scales 20 --m 2 --r 0.2 --fuzzy True 
+python3 multiscale_entropy_id.py --algorithm mse_2d --input examples/mse_2d/ --scales 20 --m 2 --r 0.2 --fuzzy True --n_threads 8
 ```
 
 Output:
@@ -70,7 +70,7 @@ Output:
 ## MSE 3D:
 
 ```console
-python3 multiscale_entropy_id.py --algorithm mse_3d --input examples/mse_3d/ --scales 20 --m 2 --r 0.2 --fuzzy True --method RCMSE
+python3 multiscale_entropy_id.py --algorithm mse_3d --input examples/mse_3d/ --scales 20 --m 2 --r 0.2 --fuzzy True --method RCMSE --n_threads 8
 ```
 
 Output:
